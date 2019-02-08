@@ -42,9 +42,7 @@ namespace UniversityClinicHospital.Tests
         {
             Receptionist receptionist = new Receptionist(1, "Alex", true);
 
-            receptionist.PaySalary();
-
-            Assert.True(receptionist.SalaryPaid);
+            Assert.Equal("Alex", receptionist.Name);
         }
 
         [Fact]
@@ -53,6 +51,26 @@ namespace UniversityClinicHospital.Tests
             Receptionist receptionist = new Receptionist(1, "Alex", true);
 
             Assert.True(receptionist.OnThePhone);
+        }
+
+        [Fact]
+        public void Receptionist_Info()
+        {
+            Receptionist receptionist = new Receptionist(1, "Alex", true);
+
+            string info = receptionist.Info();
+
+            Assert.Equal("ID: 1, Name: Alex, Salary: 45000, Paid: No, On the Phone: Yes", info);
+        }
+
+        [Fact]
+        public void Phone_Toggles()
+        {
+            Receptionist receptionist = new Receptionist(1, "Alex", true);
+
+            receptionist.TogglePhone();
+
+            Assert.False(receptionist.OnThePhone);
         }
     }
 }

@@ -21,8 +21,40 @@ namespace UniversityClinicHospital
 
         public override string Info()
         {
-            string info = "";
+            string phone;
+            if (OnThePhone)
+            {
+                phone = "Yes";
+            }
+            else
+            {
+                phone = "No";
+            }
+
+            string pay;
+            if (SalaryPaid)
+            {
+                pay = "Yes";
+            }
+            else
+            {
+                pay = "No";
+            }
+
+            string info = "ID: " + EmployeeNumber + ", Name: " + Name + ", Salary: " + Salary + ", Paid: " + pay + ", On the Phone: " + phone;
             return info;
+        }
+
+        public void TogglePhone()
+        {
+            if (OnThePhone)
+            {
+                OnThePhone = false;
+            }
+            else
+            {
+                OnThePhone = true;
+            }
         }
     }
 }

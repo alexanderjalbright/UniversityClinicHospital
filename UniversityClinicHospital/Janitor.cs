@@ -21,8 +21,40 @@ namespace UniversityClinicHospital
 
         public override string Info()
         {
-            string info = "";
+            string sweep;
+            if (IsSweeping)
+            {
+                sweep = "Yes";
+            }
+            else
+            {
+                sweep = "No";
+            }
+
+            string pay;
+            if (SalaryPaid)
+            {
+                pay = "Yes";
+            }
+            else
+            {
+                pay = "No";
+            }
+
+            string info = "ID: " + EmployeeNumber + ", Name: " + Name + ", Salary: " + Salary + ", Paid: " + pay + ", Sweeping: " + sweep;
             return info;
+        }
+
+        public void ToggleSweeping()
+        {
+            if (IsSweeping)
+            {
+                IsSweeping = false;
+            }
+            else
+            {
+                IsSweeping = true;
+            }
         }
     }
 }

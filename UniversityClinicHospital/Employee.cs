@@ -9,6 +9,7 @@ namespace UniversityClinicHospital
         public Employee(int id, string name)
         {
             EmployeeNumber = id;
+            Name = name;
             SalaryPaid = false;
         }
 

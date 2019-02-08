@@ -41,10 +41,8 @@ namespace UniversityClinicHospital.Tests
         public void Doctor_Has_Name()
         {
             Doctor doctor = new Doctor(1, "Alex", "Head");
-
-            doctor.PaySalary();
-
-            Assert.True(doctor.SalaryPaid);
+            
+            Assert.Equal("Alex", doctor.Name);
         }
 
         [Fact]
@@ -53,6 +51,37 @@ namespace UniversityClinicHospital.Tests
             Doctor doctor = new Doctor(1, "Alex", "Head");
 
             Assert.Equal("Head", doctor.SpecialtyArea);
+        }
+
+        [Fact]
+        public void Doctor_Info()
+        {
+            Doctor doctor = new Doctor(1, "Alex", "Head");
+
+            string info = doctor.Info();
+            Assert.Equal("ID: 1, Name: Alex, Salary: 90000, Paid: No, Specialty Area: Head", info);
+        }
+
+        [Fact]
+        public void Doctor_Draw_Blood()
+        {
+            Doctor doctor = new Doctor(1, "Alex", "Head");
+            Patient patient = new Patient();
+
+            doctor.DrawBlood(patient);
+
+            Assert.Equal(10, patient.BloodLevel);
+        }
+
+        [Fact]
+        public void Doctor_Cares()
+        {
+            Doctor doctor = new Doctor(1, "Alex", "Head");
+            Patient patient = new Patient();
+
+            doctor.Care(patient);
+
+            Assert.Equal(20, patient.BloodLevel);
         }
     }
 }

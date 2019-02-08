@@ -42,9 +42,7 @@ namespace UniversityClinicHospital.Tests
         {
             Janitor janitor = new Janitor(1, "Alex", true);
 
-            janitor.PaySalary();
-
-            Assert.True(janitor.SalaryPaid);
+            Assert.Equal("Alex", janitor.Name);
         }
 
         [Fact]
@@ -53,6 +51,25 @@ namespace UniversityClinicHospital.Tests
             Janitor janitor = new Janitor(1, "Alex", true);
             
             Assert.True(janitor.IsSweeping);
+        }
+
+        [Fact]
+        public void Janitor_Info()
+        {
+            Janitor janitor = new Janitor(1, "Alex", true);
+
+            string info = janitor.Info();
+            Assert.Equal("ID: 1, Name: Alex, Salary: 40000, Paid: No, Sweeping: Yes", info);
+        }
+
+        [Fact]
+        public void Sweeping_Toggles()
+        {
+            Janitor janitor = new Janitor(1, "Alex", true);
+
+            janitor.ToggleSweeping();
+
+            Assert.False(janitor.IsSweeping);
         }
     }
 }
