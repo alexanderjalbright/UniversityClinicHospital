@@ -6,25 +6,53 @@ namespace UniversityClinicHospital.Tests
     public class DoctorTests
     {
         [Fact]
-        public void Test1()
+        public void Create_Instance()
         {
-            Doctor employee = new Doctor(1);
+            Doctor doctor = new Doctor(1, "Alex", "Head");
         }
 
         [Fact]
-        public void Employee_Has_ID()
+        public void Doctor_Has_ID()
         {
-            Doctor employee = new Doctor(1);
+            Doctor doctor = new Doctor(1, "Alex", "Head");
 
-            Assert.Equal(1, employee.ID);
+            Assert.Equal(1, doctor.EmployeeNumber);
         }
 
         [Fact]
-        public void Employee_Has_Salary()
+        public void Doctor_Has_Salary()
         {
-            Doctor employee = new Doctor(1);
+            Doctor doctor = new Doctor(1, "Alex", "Head");
 
-            Assert.Equal(1, employee.ID);
+            Assert.Equal(1, doctor.EmployeeNumber);
+        }
+
+        [Fact]
+        public void Doctor_Gets_Paid()
+        {
+            Doctor doctor = new Doctor(1, "Alex", "Head");
+
+            doctor.PaySalary();
+
+            Assert.True(doctor.SalaryPaid);
+        }
+
+        [Fact]
+        public void Doctor_Has_Name()
+        {
+            Doctor doctor = new Doctor(1, "Alex", "Head");
+
+            doctor.PaySalary();
+
+            Assert.True(doctor.SalaryPaid);
+        }
+
+        [Fact]
+        public void Doctor_Has_Specialty_Area()
+        {
+            Doctor doctor = new Doctor(1, "Alex", "Head");
+
+            Assert.Equal("Head", doctor.SpecialtyArea);
         }
     }
 }

@@ -6,13 +6,22 @@ namespace UniversityClinicHospital
 {
     public abstract class Employee
     {
-        public Employee(int id)
+        public Employee(int id, string name)
         {
-            ID = id;
+            EmployeeNumber = id;
+            SalaryPaid = false;
         }
 
-        public int ID { get; protected set; }
+        public string Name { get; private set; }
+
+        public int EmployeeNumber { get; protected set; }
 
         public int Salary { get; protected set; }
+
+        public bool SalaryPaid { get; protected set; }
+
+        public abstract void PaySalary();
+
+        public abstract string Info();
     }
 }

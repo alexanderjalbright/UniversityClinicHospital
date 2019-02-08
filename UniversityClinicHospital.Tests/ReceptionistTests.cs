@@ -6,25 +6,53 @@ namespace UniversityClinicHospital.Tests
     public class ReceptionistTests
     {
         [Fact]
-        public void Test1()
+        public void Create_Instance()
         {
-            Receptionist employee = new Receptionist(1);
+            Receptionist receptionist = new Receptionist(1, "Alex", true);
         }
 
         [Fact]
-        public void Employee_Has_ID()
+        public void Receptionist_Has_ID()
         {
-            Receptionist employee = new Receptionist(1);
+            Receptionist receptionist = new Receptionist(1, "Alex", true);
 
-            Assert.Equal(1, employee.ID);
+            Assert.Equal(1, receptionist.EmployeeNumber);
         }
 
         [Fact]
-        public void Employee_Has_Salary()
+        public void Receptionist_Has_Salary()
         {
-            Receptionist employee = new Receptionist(1);
+            Receptionist receptionist = new Receptionist(1, "Alex", true);
 
-            Assert.Equal(1, employee.ID);
+            Assert.Equal(1, receptionist.EmployeeNumber);
+        }
+
+        [Fact]
+        public void Receptionist_Gets_Paid()
+        {
+            Receptionist receptionist = new Receptionist(1, "Alex", true);
+
+            receptionist.PaySalary();
+
+            Assert.True(receptionist.SalaryPaid);
+        }
+
+        [Fact]
+        public void Receptionist_Has_Name()
+        {
+            Receptionist receptionist = new Receptionist(1, "Alex", true);
+
+            receptionist.PaySalary();
+
+            Assert.True(receptionist.SalaryPaid);
+        }
+
+        [Fact]
+        public void Receptionist_Is_On_Phone()
+        {
+            Receptionist receptionist = new Receptionist(1, "Alex", true);
+
+            Assert.True(receptionist.OnThePhone);
         }
     }
 }
